@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Sentiment Tool</title>
+		{% block templates %}
+			<script type="text/html" id="templ-results">
+			<div class="container col-lg-6 col-xs-12">
+				<blockquote>
+					<br><br>
+					<p> <b>Statement:&nbsp; &nbsp; </b><h5 text-align=justify;><%= sentence %></h5></p>
+					<p> <b>Statement's Sentiment : </b> <%= result %> </p>
+					<p> <b>Confidence Percent: </b> <%= confidence %> </p>
+				</blockquote>
+			</div>
+			</script>
+			
+		{% endblock %}
+		<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+		<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" media="screen">
+	</head>
+	<body bgcolor="#E6E6FA">
+		<div id="container" class="container col-md-8 col-md-offset-2">
+		{% block content %}
+		 <div class="row padding_bottom ">
+		 <div class="col-lg-6 col-xs-12">
+		    <center> <h1>Demo To India</h1>  </center>
+			<center> <p> Analyse the Statement </p> </center>
+			<form id="form" role="form">
+				<textarea name="txt" id="txt" cols="10" rows="20" class="form-control input-sm"></textarea>
+				<input type="button" value="Submit" id="submit" class="form-control"/>
+			</form>
+			<br><br>
+			</div>
+			<div id="result" > </div>
+			</div>
+		{% endblock %}
+		
+		</div>	
+		{% block scripts %}
+			<script src="{{ url_for('static', filename='jquery-1.10.1.min.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='underscore-min.js') }}"></script>
+			<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+		{% endblock %}
+		
+	</body>
+</html>
